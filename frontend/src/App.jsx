@@ -4,6 +4,7 @@ import Home from './pages/Home'
 import Join from './pages/Join'
 import Queue from './pages/Queue'
 import Match from './pages/Match'
+import Game from './pages/Game'
 import Admin from './pages/Admin'
 import Leaderboard from './pages/Leaderboard'
 import History from './pages/History'
@@ -19,6 +20,7 @@ export default function App() {
         <Route path="/join"        element={<Join />} />
         <Route path="/queue"       element={player ? <Queue /> : <Navigate to="/join" replace />} />
         <Route path="/match"       element={<Match />} />
+        <Route path="/game/:match_id" element={<Game />} />
         <Route path="/leaderboard" element={<Leaderboard />} />
         <Route path="/history"     element={<History />} />
         <Route path="/admin"       element={<Admin />} />

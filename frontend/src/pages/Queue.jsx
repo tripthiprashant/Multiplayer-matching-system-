@@ -48,7 +48,12 @@ export default function Queue() {
   const [leaving, setLeaving]       = useState(false)
 
   const onMatched = useCallback((matchData) => {
-    navigate('/match', { state: { match: matchData } })
+    const matchId = matchData?.match_id ?? matchData?.id
+    if (matchId) {
+      navigate(`/game/${matchId}`)
+    } else {
+      navigate('/match', { state: { match: matchData } })
+    }
   }, [navigate])
 
   const { status, error } = useQueue(player?.session_id, onMatched)
